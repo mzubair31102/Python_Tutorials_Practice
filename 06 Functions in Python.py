@@ -1,47 +1,63 @@
+#A function is a block of code which only runs when it is called.
 #Creating a Function & Calling a Function
-def myfun():
+def first_funtion():
     print("Function Called")
-myfun()
+first_funtion()
+# Parameters
+def add(num1,num2):
+    addition=num1+num2
+    return addition
+def sub(num1,num2):
+    sub=num1-num2
+    print(sub)
 #Arguments
-def newfun(name,email,number):
-    print("My name is ",name,"My Email Address",email,"My Mobile Number",number)
-newfun("Muhammad Zubair","email","0302")
+print(add(5,6)*4)
+print(add(2,4))
+sub(5,1)
+def student(fname,lname,age):
+    print("My name is",fname,lname,". My age is",age)
+student("Muhammad","Zubair",25)
 #Arbitrary Arguments, *args
-def afun(*tupleitem):
-    print(tupleitem[2],tupleitem[1])
-afun("Muhammad Zubair","email","0302")
-#Keyword Arguments
-def nfun(num1,num2,num3):
-    print(num1,num2,num3)
-nfun(num1="Ali",num2=23,num3="Umar")
-#Arbitrary Keyword Arguments, **kwargs (recive dictionary)
-def nnfum(**num):
-    print(num["num1"],num["num2"])
-nnfum(num1="umar",num2="zubair")
-#Default Parameter Value
-def d_fun(name="Zubair"):
-    print(name)
-d_fun()
-d_fun("Umar")
-#Passing a List as an Argument
-def l_fun(names):
-    for i in names:
+def students_list(*std):
+    for i in std:
         print(i)
-users=["Ali","Zubair","Waseem","Usman"]
-l_fun(users)
+students_list("Ali","Zubair","Umar","Aqsa","Amina")
+students_list("akram","numan")
+#Keyword Arguments
+print(add(num2=23,num1=10))
+#Arbitrary Keyword Arguments, **kwargs (recive dictionary)
+def akfun(**dic):
+    for i in dic:
+        print(i)
+        print(dic[i])
+akfun(std1="Ali",std2="Umar",std3="Waseem")
+#Default Parameter Value
+def dfun(city="Lahore"):
+    print("My City is",city)
+dfun()
+dfun("Multan")
+#Passing a List as an Argument
+list1=["Ali","Zubair","Umar","Aqsa","Amina"]
+list2=["Umar","Aqsa","Amina"]
+def list_std(list_s):
+    for i in list_s:
+        print(i)
+
+list_std(list1)
+list_std(list2)
 # Return Values
-def n_f(x):
-    return x*5
-print(n_f(4))
+def mul(num1,num2,num3):
+    return num1*num2*num3
+result=mul(3,5,6)
+print(result)
 #The pass Statement
-def pass_fun():
+def new():
     pass
+new()
 #Recursion function can call itself (Loop with out Loop)
-def r_fun(x):
-    if(x>0):
-        resutl=x+r_fun(x-1)
-        print(resutl)
+def fat(num):
+    if num==1:
+        return 1
     else:
-        resutl = 0
-    return resutl
-r_fun(7)
+        return (num*fat(num-1))
+print(fat(3))
